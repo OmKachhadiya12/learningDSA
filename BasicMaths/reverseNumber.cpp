@@ -5,23 +5,19 @@ using namespace std;
 
 int reverseIt(int n) {
 
-    int reverseNum = 0;
+    long reverseNum = 0;
 
-    if(n < 0) {
-        while(n < 0) {
-        int lastDigit = n % 10;
-        reverseNum = (reverseNum * 10) + lastDigit;
-        n = n / 10;
+        while (n != 0) {
+            int digit = n % 10;
+            reverseNum = reverseNum * 10 + digit;
+
+            if (reverseNum > INT_MAX || reverseNum < INT_MIN) {
+                return 0;
+            }
+
+            n /= 10;
         }
-    }
-
-    while(n > 0) {
-        int lastDigit = n % 10;
-        reverseNum = (reverseNum * 10) + lastDigit;
-        n = n / 10;
-    }
-
-    return reverseNum;
+        return reverseNum;
 
 }
  
