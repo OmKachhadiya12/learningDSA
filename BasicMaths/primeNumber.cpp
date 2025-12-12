@@ -5,6 +5,7 @@ using namespace std;
 
 bool prime(int n) {
     int i = 1;
+    int count = 0;
 
     while(i<=n){
         if(n % i == 0) {
@@ -12,6 +13,12 @@ bool prime(int n) {
         }
         i++;
     }
+
+    if(count==2) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 int main() {
