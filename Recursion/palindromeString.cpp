@@ -4,22 +4,34 @@
 #include<algorithm>
 using namespace std;
 
-bool palindrome(string words) {
-    string s = "";
-    for(char c : words) {
-        if(isalnum(c)) {
-            s += tolower(c);
-        }
-    }
+
+// bool palindrome(string words) {
+//     string s = "";
+//     for(char c : words) {
+//         if(isalnum(c)) {
+//             s += tolower(c);
+//         }
+//     }
     
-    string original = s;
+//     string original = s;
 
-    reverse(s.begin(),s.end()); 
+//     reverse(s.begin(),s.end()); 
 
-    if(s == original) {
+//     if(s == original) {
+//         return true;
+//     }
+//     return false;
+// }
+
+//Using recursion
+bool palindrome(int i,string s) {
+    if(i >= s.size()/2) {
         return true;
     }
-    return false;
+    if(s[i] != s[s.size()-i-1]) {
+        return false;
+    }
+    return palindrome(i+1,s);
 }
 
 int main() {
@@ -28,7 +40,16 @@ int main() {
     cout << "Enter String to check it's a Palindrome or not: ";
     getline(cin,x);
 
-    bool isPalindrome = palindrome(x);
+    string newString = "";
+
+    for(char ch : x) {
+        if(isalnum(ch)) {
+            newString+= tolower(ch);
+        }
+    }
+    // cout << newString;
+
+    bool isPalindrome = palindrome(0,newString);
     cout << isPalindrome;
 
     return 0;
