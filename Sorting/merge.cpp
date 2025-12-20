@@ -46,30 +46,3 @@ void mergesort(int arr[],int low,int high) {
 }
 
 
-int main() {
-
-    int n;
-    cout << "Enter size of an array: ";
-    cin >> n;
- 
-    int arr[n];
-
-    cout << "Enter the elements of it: ";
-    for (int i=0;i<n;i++){
-        cin >> arr[i];
-    }
-
-    cout << "Before sorting: ";   
-    for (int i=0;i<n;i++){
-        cout << arr[i] << " ";
-    }
-
-    mergesort(arr,0,n-1);
-
-    cout << endl << "After sorting: ";
-    for (int i=0;i<n;i++){
-        cout << arr[i] << " ";
-    }
-
-    return 0;
-}
