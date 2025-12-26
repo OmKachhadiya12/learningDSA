@@ -3,30 +3,29 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void leftRotateByK(int arr[],int n,int k) {
+void rightRotateByK(int arr[],int n,int k) {
     // vector<int> temp;
     // k = k % n;
 
-    // for (int i = 0; i < k; i++) {
+    // for (int i=n-k;i<n;i++) {
     //     temp.push_back(arr[i]);
     // }
   
-    // for (int i=k;i<n;i++){
-    //     arr[i-k] = arr[i];
+    // for (int i=n-k-1;i>=0;i--) {
+    //     arr[i+k] = arr[i];
     // }
 
     // int j = 0;
-    // for (int i=n-k;i<n;i++){
+    // for (int i=0;i<k;i++){
     //     arr[i] = temp[j];
     //     j++;
     // }
     // return;
 
-    k = k % n;
-    reverse(arr,arr+k);
-    reverse(arr+k,arr+n);
+    reverse(arr+n-k,arr);
+    reverse(arr,arr+n-k);
     reverse(arr,arr+n);
-    
+
     return;
 
 }
@@ -47,7 +46,7 @@ int main() {
     cout << "Enter the 'K': ";
     cin >> d;
 
-    leftRotateByK(arr,n,d);
+    rightRotateByK(arr,n,d);
 
     for (int j=0;j<n;j++){
         cout << arr[j]  << " ";
