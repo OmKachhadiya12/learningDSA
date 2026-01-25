@@ -14,6 +14,12 @@ int search(int arr[],int n,int target) {
             return mid;
         }
 
+        if(arr[low] == arr[mid] ==arr[high]) {
+            low++;
+            high--;
+            continue;
+        }
+
         if(arr[low] <= arr[mid]) {
             if(arr[low] <= target && target < arr[mid]) {
                 high = mid - 1;
