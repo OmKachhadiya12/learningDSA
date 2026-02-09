@@ -3,7 +3,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void reverseString(string str) {
+void reverseString(string &str) {
     int start = 0;
     int end = str.length() - 1;
 
