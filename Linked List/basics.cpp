@@ -94,6 +94,76 @@ Node* deleteKthElement(Node* head,int k) {
     
 }
 
+// Insertion at Head
+Node* insertHead(Node* head,int data) {
+    Node* temp = new Node(data,head);
+    return temp;
+}
+
+// Insert at Tail
+Node* insertTail(Node*head,int data) {
+    if(head == nullptr) {
+        return new Node(data,nullptr);
+    }
+    Node* temp = head;
+
+    while (temp->next != nullptr){
+        temp = temp->next;
+    }
+
+    temp->next = new Node(data,nullptr);
+    return head;
+    
+}
+
+// Insert at K-th position
+Node* insertKthPos(Node* head,int data,int pos) {
+    if(head == nullptr) {
+        if(pos == 1) {
+            return new Node(data);
+        }
+        return head;
+    }
+    if(pos == 1) {
+        Node* temp = new Node(data,head);
+        return temp;
+    }
+    int count = 1;
+    Node* prev = nullptr;
+    Node* temp = head;
+
+    // while (temp != nullptr){
+    //     prev = temp;
+    //     temp = temp->next;
+    //     count++;
+    //     if(count == pos) {
+    //         break;
+    //     }
+    // }
+
+    // if(temp == nullptr) {
+    //     return head;
+    // }
+
+    while (temp != nullptr && count < pos){
+        prev = temp;
+        temp = temp->next;
+        count++;
+    }
+
+    if(count == pos) {
+        Node* newNode = new Node(data,temp);
+        prev->next = newNode;
+    }
+    
+
+    // Node* newNode = new Node(data,temp);
+    // prev->next = newNode;
+    
+    return head;
+    
+}
+
 int main() {
 
     // Node* n1 = new Node(2,nullptr);
