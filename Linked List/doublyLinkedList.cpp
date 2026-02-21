@@ -112,6 +112,66 @@ Node* deleteKth(Node* head,int k) {
     
 }
 
+// Insertion at Head (Before)
+Node* insertionHead(Node * head,int data) {
+    Node* newData = new Node(data,nullptr,head);
+    head->prev = newData;
+    return newData;
+}
+
+// Insertion at Tail (Before)
+Node* insertionTail(Node* head,int data) {
+    if (head == nullptr){
+        return nullptr;
+    }
+    
+    Node* temp = head;
+
+    while (temp->next != nullptr){
+        temp = temp->next;
+    }
+
+    Node* newData = new Node(data,temp->prev,temp);
+    Node* back = temp->prev;
+    back->next = newData;
+    temp->prev = newData;
+    return head;
+    
+}
+
+// Inertion at K-th Position
+Node* insertionKth(Node* head,int data,int k) {
+    if(head == nullptr) {
+        if(k == 1) {
+            return new Node(data);
+        }
+        return nullptr;
+    }
+
+    if(k == 1) {
+        Node* newHead = new Node(data,nullptr,head);
+        head->prev = newHead;
+        return newHead;
+    }
+
+    int count = 1;
+    Node* temp = head;
+
+    while (temp != nullptr && count < k){
+        temp = temp->next;
+        count++;
+    }
+    
+    if(temp == nullptr) {
+        return head;
+    }
+    Node* back = temp->prev;
+    Node* newData = new Node(data,back,temp);
+    back->next = newData;
+    temp->prev = newData;
+    return head;
+}
+
 int main() {
 
     int arr[5] = {1,2,3,4,5};
@@ -125,7 +185,7 @@ int main() {
     }
     
     cout << endl;
-    head = deleteKth(head,4);
+    head = insertionKth(head,12,2);
     Node* teemp = head;
     while (teemp != nullptr){
         cout << teemp->data;
