@@ -7,21 +7,25 @@ struct Node {
     public:
     int data;
     Node* next;
+    Node* random;
 
     public:
-    Node(int data1,Node* next1) {
+    Node(int data1,Node* next1,Node* random1) {
         data = data1;
         next = next1;
+        random = random1;
     }
 
     Node(int data1) {
         data = data1;
         next = nullptr;
+        random = nullptr;
     }
 
     Node() {
         data = 0;
         next = nullptr;
+        random = nullptr;
     }
 };
 
