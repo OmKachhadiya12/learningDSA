@@ -4,21 +4,18 @@
 using namespace std;
 
 bool prime(int n) {
-    int i = 1;
-    int count = 0;
+    if(n <= 1) {
+        return false;
+    }
 
-    while(i<=n){
+    for(int i = 2; i * i <= n; i++) {
         if(n % i == 0) {
             return false;
         }
-        i++;
     }
 
-    if(count==2) {
-            return true;
-        } else {
-            return false;
-        }
+    return true;
+
 }
 
 int main() {
