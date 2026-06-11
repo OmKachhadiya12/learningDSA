@@ -17,7 +17,7 @@ int maximumSubarray(int arr[],int n) {
     // return maxii;
     
     int maxii = INT_MIN,sum = arr[0];
-    int i = 0;
+    int i = 1;
 
     while (i < n){
         sum  = sum + arr[i];
