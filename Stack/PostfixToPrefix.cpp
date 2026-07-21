@@ -1,4 +1,4 @@
-// Postfix To Infix.
+// Postfix To Prefix.
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -15,7 +15,7 @@ string converIt(string s) {
             st.pop();
             string t2 = st.top();
             st.pop();
-            string conn = "(" + t2 + s[i] + t1 + ")";
+            string conn = s[i] + t2 + t1;
             st.push(conn);
         }
         i++;

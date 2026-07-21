@@ -1,13 +1,13 @@
-// Postfix To Infix.
+// Prefix To Infix.
 
 #include<bits/stdc++.h>
 using namespace std;
 
 string converIt(string s) {
     stack<string> st;
-    int i = 0;
+    int i = s.length() - 1;
 
-    while (i < s.length()) {
+    while (i >= 0) {
         if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z') || (s[i] >= '0' && s[i] <= '9')) {
             st.push(string(1, s[i]));
         } else {
@@ -15,10 +15,10 @@ string converIt(string s) {
             st.pop();
             string t2 = st.top();
             st.pop();
-            string conn = "(" + t2 + s[i] + t1 + ")";
+            string conn = "(" + t1 + s[i] + t2 + ")";
             st.push(conn);
         }
-        i++;
+        i--;
     }
 
     return st.top();
