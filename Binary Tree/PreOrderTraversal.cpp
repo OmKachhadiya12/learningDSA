@@ -26,6 +26,29 @@ void PreOrderTraversal(Node* node) {
     PreOrderTraversal(node->right);
 }
 
+vector<int> preOrderTraversal(Node* root) {
+    vector<int> ans;
+
+    if(root == nullptr) {
+        return ans;
+    }
+
+    stack<Node*> st;
+    st.push(root);
+
+    while (!st.empty()) {
+        root = st.top();
+        ans.push_back(root->data);
+        if(root->right != nullptr) {
+            st.push(root->right);
+        }
+        if(root->left != nullptr) {
+            st.push(root->left);
+        }
+    }
+    
+    return ans;
+}
 
 int main() {
     return 0;
